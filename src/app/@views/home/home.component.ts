@@ -24,13 +24,13 @@ export class HomeComponent implements OnInit {
       this.data = data;
       console.log(this.data);
       // @ts-ignore
-      this.tempCoOut = this.data[0].value[3].tempC + "℃";
+      this.tempCoOut = this.data[0]?.value[3].tempC + "℃";
       // @ts-ignore
-      this.tempCoIn = this.data[0].value[1].tempC + "℃";
+      this.tempCoIn = this.data[0]?.value[1].tempC + "℃";
       // @ts-ignore
-      this.tempCwuOut = this.data[0].value[2].tempC + "℃";
+      this.tempCwuOut = this.data[0]?.value[2].tempC + "℃";
       // @ts-ignore
-      this.tempOut = this.data[0].value[0].tempC + "℃";
+      this.tempOut = this.data[0]?.value[0].tempC + "℃";
     })
   }
 
