@@ -1,0 +1,42 @@
+.piec {
+  height: 340px;
+  background-repeat: no-repeat;
+  margin-top: 130px;
+  margin-left: 30px;
+}
+
+.circle{
+  padding: 2px 5px 2px 5px;
+  border: 1px solid crimson;
+  background: crimson;
+
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600 ;
+  color: white;
+}
+
+.temp-co-out {
+  float: left;
+  margin-left: 35px;
+  margin-top: 20px;
+}
+
+.temp-co-in {
+  float: left;
+  margin-left: 50px;
+  margin-top: 240px;
+}
+
+.temp-cwu-out {
+  float: left;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.temp-out {
+  float: left;
+  display: block;
+  margin-left: 3px;
+  margin-top: 290px;
+}
