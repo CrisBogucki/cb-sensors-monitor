@@ -4,7 +4,7 @@
 
   <h6>Data pomiaru:  <span class="badge bg-secondary">{{ datetime }}</span></h6>
 
-  <span class="circle temp-co-out" routerLink="details-day">{{ tempCoOut }} ℃
+  <span class="circle temp-co-out" routerLink="details">{{ tempCoOut }} ℃
     <i class="bi bi-arrow-up-short" *ngIf="tempCoOut > _tempCoOut"></i>
     <i class="bi bi-arrow-right-short" *ngIf="tempCoOut == _tempCoOut"></i>
     <i class="bi bi-arrow-down-short" *ngIf="tempCoOut < _tempCoOut"></i>

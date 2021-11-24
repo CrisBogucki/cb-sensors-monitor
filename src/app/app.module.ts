@@ -8,18 +8,14 @@ import {environment} from "../environments/environment";
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import { HomeComponent } from './@views/home/home.component';
-import { DetailsDayComponent } from './@views/details-day/details-day.component';
-import { DetailsWeekComponent } from './@views/details-week/details-week.component';
-import { DetailsMonthComponent } from './@views/details-month/details-month.component';
+import {DetailsComponent} from "./@views/details/details.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsDayComponent,
-    DetailsWeekComponent,
-    DetailsMonthComponent
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
