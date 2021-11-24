@@ -19,7 +19,8 @@
     <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCwuOut) == _parseFloat(_tempCwuOut)"></i>
     <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCwuOut) < _parseFloat(_tempCwuOut)"></i>
   </span>
-  <span class="circle temp-out">{{ tempOut }}
+
+  <span class="circle temp-out" style="background: #0c4128; border-color: #0c4128">{{ tempOut }}
     <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempOut) > _parseFloat(_tempOut)"></i>
     <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempOut) == _parseFloat(_tempOut)"></i>
     <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempOut) < _parseFloat(_tempOut)"></i>
