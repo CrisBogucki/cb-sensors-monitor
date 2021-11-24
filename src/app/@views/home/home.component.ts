@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FirebaseRealtimeDatabaseService} from "../../@services/firebase-realtime-database.service";
 import {SensorModel} from "../../@models/SensorModel";
+import {Utils} from "../../@utils/utils";
 
 @Component({
   selector: 'app-home',
@@ -9,20 +10,37 @@ import {SensorModel} from "../../@models/SensorModel";
 })
 export class HomeComponent implements OnInit {
 
-  tempCoOut: string = "";
-  tempCoIn: string = "";
-  tempCwuOut: string = "";
-  tempOut: string = "";
+  tempCoOut: any = "0";
+  tempCoIn: any = "0";
+  tempCwuOut: any = "0";
+  tempOut: any = "0";
+
+  _tempCoOut: any = "0";
+  _tempCoIn: any = "0";
+  _tempCwuOut: any = "0";
+  _tempOut: any = "0";
+
+  datetime: string = "";
 
   data: SensorModel[] = [];
 
-  constructor(private dbService: FirebaseRealtimeDatabaseService) {
+  constructor(private dbService: FirebaseRealtimeDatabaseService, private utils: Utils) {
   }
 
   ngOnInit(): void {
     this.dbService.getCurrent().valueChanges().subscribe((data) => {
       this.data = data;
-      console.log(this.data);
+      console.log("TU",this.data);
+      if(this.data.length == 0)
+        return;
+
+      this.datetime = this.utils.epochtoDateTime(this.data[0].epochTime);
+
+      this._tempCoOut = this.tempCoOut?.replace("℃","");
+      this._tempCoIn= this.tempCoIn?.replace("℃","");
+      this._tempCwuOut= this.tempCwuOut?.replace("℃","");
+      this._tempOut= this.tempOut?.replace("℃","");
+
       // @ts-ignore
       this.tempCoOut = this.data[0]?.value[3].tempC + "℃";
       // @ts-ignore
@@ -34,4 +52,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  _parseFloat(text: string) {
+      const s = parseFloat(text);
+      return s;
+  }
 }

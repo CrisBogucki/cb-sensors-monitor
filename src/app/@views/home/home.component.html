@@ -1,7 +1,27 @@
+
+
 <div class="piec" style="background: url('./assets/piec.jpg') no-repeat left">
 
-  <span class="circle temp-co-out">{{ tempCoOut }}</span>
-  <span class="circle temp-co-in">{{ tempCoIn }}</span>
-  <span class="circle temp-cwu-out">{{ tempCwuOut }}</span>
-  <span class="circle temp-out">{{ tempOut }}</span>
+  <h6>Data pomiaru:  <span class="badge bg-secondary">{{ datetime }}</span></h6>
+
+  <span class="circle temp-co-out">{{ tempCoOut }}
+    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempCoOut) > _parseFloat(_tempCoOut)"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCoOut) == _parseFloat(_tempCoOut)"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCoOut) < _parseFloat(_tempCoOut)"></i>
+  </span>
+  <span class="circle temp-co-in">{{ tempCoIn }}
+    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempCoIn) > _parseFloat(_tempCoIn)"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCoIn) == _parseFloat(_tempCoIn)"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCoIn) < _parseFloat(_tempCoIn)"></i>
+  </span>
+  <span class="circle temp-cwu-out">{{ tempCwuOut }}
+    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempCwuOut) > _parseFloat(_tempCwuOut)"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCwuOut) == _parseFloat(_tempCwuOut)"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCwuOut) < _parseFloat(_tempCwuOut)"></i>
+  </span>
+  <span class="circle temp-out">{{ tempOut }}
+    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempOut) > _parseFloat(_tempOut)"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempOut) == _parseFloat(_tempOut)"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempOut) < _parseFloat(_tempOut)"></i>
+  </span>
 </div>
