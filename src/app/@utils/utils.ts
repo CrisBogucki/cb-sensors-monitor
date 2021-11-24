@@ -6,9 +6,13 @@ import {Injectable} from "@angular/core";
 })
 export class Utils {
 
-  epochtoDateTime(epoch: string){
+  epochStringToDateTime(epoch: string){
     const day = moment.unix(parseInt(epoch)); //seconds
     return day.add(0, "hour").format('YYYY-MM-DD HH:mm:ss');
+  }
+
+  stringToFloat(text: string) {
+    return parseFloat(text);
   }
 
 }

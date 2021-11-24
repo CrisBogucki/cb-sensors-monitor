@@ -4,25 +4,25 @@
 
   <h6>Data pomiaru:  <span class="badge bg-secondary">{{ datetime }}</span></h6>
 
-  <span class="circle temp-co-out">{{ tempCoOut }}
-    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempCoOut) > _parseFloat(_tempCoOut)"></i>
-    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCoOut) == _parseFloat(_tempCoOut)"></i>
-    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCoOut) < _parseFloat(_tempCoOut)"></i>
+  <span class="circle temp-co-out" routerLink="details-day">{{ tempCoOut }} ℃
+    <i class="bi bi-arrow-up-short" *ngIf="tempCoOut > _tempCoOut"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="tempCoOut == _tempCoOut"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="tempCoOut < _tempCoOut"></i>
   </span>
-  <span class="circle temp-co-in">{{ tempCoIn }}
-    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempCoIn) > _parseFloat(_tempCoIn)"></i>
-    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCoIn) == _parseFloat(_tempCoIn)"></i>
-    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCoIn) < _parseFloat(_tempCoIn)"></i>
+  <span class="circle temp-co-in">{{ tempCoIn }} ℃
+    <i class="bi bi-arrow-up-short" *ngIf="tempCoIn > _tempCoIn"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="tempCoIn == _tempCoIn"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="tempCoIn < _tempCoIn"></i>
   </span>
-  <span class="circle temp-cwu-out">{{ tempCwuOut }}
-    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempCwuOut) > _parseFloat(_tempCwuOut)"></i>
-    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempCwuOut) == _parseFloat(_tempCwuOut)"></i>
-    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempCwuOut) < _parseFloat(_tempCwuOut)"></i>
+  <span class="circle temp-cwu-out">{{ tempCwuOut }} ℃
+    <i class="bi bi-arrow-up-short" *ngIf="tempCwuOut > _tempCwuOut"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="tempCwuOut == _tempCwuOut"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="tempCwuOut < _tempCwuOut"></i>
   </span>
 
-  <span class="circle temp-out" style="background: #0c4128; border-color: #0c4128">{{ tempOut }}
-    <i class="bi bi-arrow-up-short" *ngIf="_parseFloat(tempOut) > _parseFloat(_tempOut)"></i>
-    <i class="bi bi-arrow-right-short" *ngIf="_parseFloat(tempOut) == _parseFloat(_tempOut)"></i>
-    <i class="bi bi-arrow-down-short" *ngIf="_parseFloat(tempOut) < _parseFloat(_tempOut)"></i>
+  <span class="circle temp-out" style="background: #0c4128; border-color: #0c4128">{{ tempOut }} ℃
+    <i class="bi bi-arrow-up-short" *ngIf="tempOut > _tempOut"></i>
+    <i class="bi bi-arrow-right-short" *ngIf="tempOut == _tempOut"></i>
+    <i class="bi bi-arrow-down-short" *ngIf="tempOut < _tempOut"></i>
   </span>
 </div>
