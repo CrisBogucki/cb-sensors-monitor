@@ -21,13 +21,21 @@ export class FirebaseRealtimeDatabaseService {
     return this.sensors;
   }
 
-  // getBetweenDate(from: Date, to: Date) :AngularFireList<SensorModel> {
-  //   //return this.sensors.valueChanges().;
-  // }
-
   getCurrent() :AngularFireList<SensorModel> {
     return this.db.list<SensorModel>(this.dbPath, ref => {
       return ref.limitToLast(1).orderByKey();
+    });
+  }
+
+  getLastByAddress(addressSensor: string | null) :AngularFireList<SensorModel> {
+    return this.db.list<SensorModel>(this.dbPath, ref => {
+      return ref.limitToLast(10000).orderByKey();
+    });
+  }
+
+  getLastDefineByAddress(addressSensor: string | null, countLast: number) :AngularFireList<SensorModel> {
+    return this.db.list<SensorModel>(this.dbPath, ref => {
+      return ref.limitToLast(countLast).orderByKey();
     });
   }
 

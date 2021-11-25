@@ -10,10 +10,10 @@ import {Utils} from "../../@utils/utils";
 })
 export class HomeComponent implements OnInit {
 
-  tempCoOut: any = "0";
-  tempCoIn: any = "0";
-  tempCwuOut: any = "0";
-  tempOut: any = "0";
+  tempCoOut: any;
+  tempCoIn: any;
+  tempCwuOut: any;
+  tempOut: any;
 
   _tempCoOut: any = "0";
   _tempCoIn: any = "0";
@@ -30,24 +30,25 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.dbService.getCurrent().valueChanges().subscribe((data) => {
       this.data = data;
+
       if(this.data.length == 0)
         return;
 
-      this.datetime = this.utils.epochStringToDateTime(this.data[0].epochTime);
+      this.datetime = this.utils.epochStringToDateTime(this.data[0]?.epochTime);
 
-      this._tempCoOut = this.utils.stringToFloat(this.tempCoOut);
-      this._tempCoIn= this.utils.stringToFloat(this.tempCoIn);
-      this._tempCwuOut= this.utils.stringToFloat(this.tempCwuOut);
-      this._tempOut= this.utils.stringToFloat(this.tempOut);
+      this._tempCoOut = this.utils.stringToFloat(this.tempCoOut?.tempC);
+      this._tempCoIn= this.utils.stringToFloat(this.tempCoIn?.tempC);
+      this._tempCwuOut= this.utils.stringToFloat(this.tempCwuOut?.tempC);
+      this._tempOut= this.utils.stringToFloat(this.tempOut?.tempC);
 
       // @ts-ignore
-      this.tempCoOut = this.utils.stringToFloat(this.data[0]?.value[3].tempC);
+      this.tempCoOut = this.data[0]?.value[3];
       // @ts-ignore
-      this.tempCoIn = this.utils.stringToFloat(this.data[0]?.value[1].tempC);
+      this.tempCoIn = this.data[0]?.value[1];
       // @ts-ignore
-      this.tempCwuOut = this.utils.stringToFloat(this.data[0]?.value[2].tempC);
+      this.tempCwuOut = this.data[0]?.value[2];
       // @ts-ignore
-      this.tempOut = this.utils.stringToFloat(this.data[0]?.value[0].tempC);
+      this.tempOut = this.data[0]?.value[0];
     })
   }
 }

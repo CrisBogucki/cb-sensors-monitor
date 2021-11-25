@@ -11,6 +11,8 @@ export class AppComponent implements OnInit{
 
   data: any = [];
 
+  toggle: boolean = false;
+
 
   constructor(private db: AngularFireDatabase) {
   }
