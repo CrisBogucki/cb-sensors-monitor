@@ -16,17 +16,18 @@ export class DetailsComponent implements OnInit {
 
   public lineChartData: ChartDataSets[] = []
 
-  //   { data: [61, 59, 80, 65, 45, 55, 40, 56, 76, 65, 77, 60], label: 'Apple' },
-  //   { data: [57, 50, 75, 87, 43, 46, 37, 48, 67, 56, 70, 50], label: 'Mi' },
-  // ];
-
   public lineChartLabels: Label[] = [];
 
   public lineChartOptions = {
+    bezierCurve: false,
+    lineTension: 0,
     responsive: true,
     elements: {
       point:{
         radius: 0
+      },
+      line: {
+        tension: 0.5
       }
     },
     scales: {
@@ -40,7 +41,7 @@ export class DetailsComponent implements OnInit {
           color: "rgba(0, 0, 0, 0)",
         },
         ticks: {
-          fontSize: 1
+          fontSize: 12
         }
       }]
     }
@@ -76,7 +77,11 @@ export class DetailsComponent implements OnInit {
             const tempC = this.sdata[i].value[v].tempC;
             if (address == this.addressSensor) {
               this.chartDataSet.push(tempC);
-              this.lineChartLabels.push(_date);
+              if(i % 10 == 0){
+                this.lineChartLabels.push(_date);
+              } else {
+                this.lineChartLabels.push("");
+              }
             }
           }
         }
@@ -88,6 +93,8 @@ export class DetailsComponent implements OnInit {
   }
 
   getNextData(): void {
+    this.lineChartLabels = [];
+    this.lineChartData[0].data = [];
     this.dbService.getLastDefineByAddress(this.addressSensor,1)
       .valueChanges()
       .subscribe((rows)=>{
@@ -103,8 +110,8 @@ export class DetailsComponent implements OnInit {
             if (address == this.addressSensor) {
               // @ts-ignore
               this.lineChartData[0].data.push(tempC);
-              console.log(tempC, _date);
-              this.lineChartLabels.push(_date);
+              if(i % 10000 == 0)
+                this.lineChartLabels.push(_date);
             }
           }
         }

@@ -29,7 +29,7 @@ export class FirebaseRealtimeDatabaseService {
 
   getLastByAddress(addressSensor: string | null) :AngularFireList<SensorModel> {
     return this.db.list<SensorModel>(this.dbPath, ref => {
-      return ref.limitToLast(10000).orderByKey();
+      return ref.limitToLast(1000).orderByKey();
     });
   }
 
