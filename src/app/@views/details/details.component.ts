@@ -27,13 +27,13 @@ export class DetailsComponent implements OnInit {
         radius: 0
       },
       line: {
-        tension: 0.5
+        tension: 0.1
       }
     },
     scales: {
       yAxes: [{
         ticks: {
-          fontSize: 10
+          fontSize: 6
         }
       }],
       xAxes: [{
@@ -41,7 +41,7 @@ export class DetailsComponent implements OnInit {
           color: "rgba(0, 0, 0, 0)",
         },
         ticks: {
-          fontSize: 12
+          fontSize: 6
         }
       }]
     }
