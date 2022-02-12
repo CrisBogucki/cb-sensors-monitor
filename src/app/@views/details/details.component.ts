@@ -110,7 +110,7 @@ export class DetailsComponent implements OnInit {
             if (address == this.addressSensor) {
               // @ts-ignore
               this.lineChartData[0].data.push(tempC);
-              if(i % 10000 == 0)
+              if(i % 100 == 0)
                 this.lineChartLabels.push(_date);
             }
           }
