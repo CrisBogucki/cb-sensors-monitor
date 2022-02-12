@@ -77,7 +77,7 @@ export class DetailsComponent implements OnInit {
             const tempC = this.sdata[i].value[v].tempC;
             if (address == this.addressSensor) {
               this.chartDataSet.push(tempC);
-              if(i % 0,3 == 0){
+              if(i % 1 == 0){
                 this.lineChartLabels.push(_date);
               } else {
                 this.lineChartLabels.push("");
@@ -110,7 +110,7 @@ export class DetailsComponent implements OnInit {
             if (address == this.addressSensor) {
               // @ts-ignore
               this.lineChartData[0].data.push(tempC);
-              if(i % 0,3 == 0)
+              if(i % 1 == 0)
                 this.lineChartLabels.push(_date);
             }
           }
