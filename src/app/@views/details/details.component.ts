@@ -41,7 +41,7 @@ export class DetailsComponent implements OnInit {
           color: "rgba(0, 0, 0, 0)",
         },
         ticks: {
-          fontSize: 6
+          fontSize: 3
         }
       }]
     }
